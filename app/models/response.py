@@ -1,7 +1,26 @@
 """ Models for response consistency """
 
+from typing import List
+from pydantic import BaseModel
 
-def response_model(data, message, status):
+
+class ResponseModel(BaseModel):
+    """Modelo de respuesta para el envio de datos al front"""
+
+    data: List
+    code: int
+    message: str
+
+
+class ErrorResponseModel(BaseModel):
+    """Modelo de respuesta para el envio de datos al front"""
+
+    error: str
+    code: int
+    message: str
+
+
+def get_response_model(data, message, status):
     """Basic response model"""
     return {
         "data": [data],

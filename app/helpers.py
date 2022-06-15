@@ -1,5 +1,6 @@
 """Funciones de utilidad"""
 from typing import Dict
+from pydantic import BaseModel
 import uvicorn
 
 
@@ -15,3 +16,8 @@ def fix_mongo_id_model(model: Dict) -> Dict:
     del model["_id"]
     model["id"] = fixed_id
     return model
+
+
+def return_not_none_dict_attrs(data: BaseModel):
+    new_data = {k: v for k, v in data.dict().items() if v is not None}
+    return new_data
