@@ -1,12 +1,13 @@
 """Users repository"""
 
 from typing import List
-from fastapi.encoders import jsonable_encoder
-from bson.objectid import ObjectId
 
-from app.helpers import fix_mongo_id_model, return_not_none_dict_attrs
+from bson.objectid import ObjectId
+from fastapi.encoders import jsonable_encoder
+
 from app.database import user_collection
-from app.models.users import UpdateUserModel, UserSchema
+from app.helpers import fix_mongo_id_model, return_not_none_dict_attrs
+from app.models.users import UpdateUserSchema, UserSchema
 
 
 class UpdateError(Exception):
@@ -37,7 +38,7 @@ async def get_by_id(id_: str):
     return None
 
 
-async def update(id_: str, data: UpdateUserModel):
+async def update(id_: str, data: UpdateUserSchema):
     """Actualiza un usuario"""
     data = return_not_none_dict_attrs(data)
     data = jsonable_encoder(data)

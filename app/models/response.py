@@ -1,6 +1,7 @@
 """ Models for response consistency """
 
 from typing import List
+
 from pydantic import BaseModel
 
 

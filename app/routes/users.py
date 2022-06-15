@@ -7,11 +7,11 @@ from fastapi.responses import JSONResponse
 
 from app.models.response import (
     ErrorResponseModel,
+    ResponseModel,
     error_response_model,
     get_response_model,
-    ResponseModel,
 )
-from app.models.users import UpdateUserModel, UserSchema
+from app.models.users import UpdateUserSchema, UserSchema
 from app.repository import users
 from app.repository.users import UpdateError
 
@@ -74,7 +74,7 @@ async def get_user_by_id(id_: str = Query(...)):
     response_model=Union[ResponseModel, ErrorResponseModel],
 )
 async def update_user_by_id(
-    id_: str = Query(...), user: UpdateUserModel = Body(...)
+    id_: str = Query(...), user: UpdateUserSchema = Body(...)
 ):
     """Endpoint para añadir usuario"""
     try:

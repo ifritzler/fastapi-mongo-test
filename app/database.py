@@ -1,6 +1,7 @@
 """ database init """
 
 import os
+
 import motor.motor_asyncio
 
 MONGO_URI = "mongodb://localhost:27017"

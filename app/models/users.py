@@ -1,5 +1,6 @@
 """Users model"""
 from typing import Optional
+
 from pydantic import BaseModel, Field, validator
 
 
@@ -34,7 +35,7 @@ class UserSchema(BaseModel):
         }
 
 
-class UpdateUserModel(BaseModel):
+class UpdateUserSchema(BaseModel):
     """Schema for user updates"""
 
     name: Optional[str]
