@@ -53,12 +53,3 @@ class UpdateUserModel(BaseModel):
                 "active": "True",
             }
         }
-
-
-class ResponseUserModel(BaseModel):
-    """Esquema de base para las respuestas de modelos"""
-
-    name: str
-    lastname: str
-    campaign: str
-    active: bool
